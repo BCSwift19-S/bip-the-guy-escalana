@@ -9,13 +9,15 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
-    //Properties
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+
+    //Properties
 
     @IBOutlet weak var ImageToPunch: UIImageView!
     
     var audioplayer = AVAudioPlayer()
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +50,41 @@ class ViewController: UIViewController {
                 print("ERROR: file \(soundname) didn't load")
         }
     }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        
+        ImageToPunch.image = selectedImage
+        
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    func showAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title , message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     // Actions
     @IBAction func CameraPressed(_ sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            imagePicker.sourceType = .camera
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion: nil)
+        }else{
+            showAlert(title: "Camera Not Available", message: "There is no camera available on this device.")
+        }
+            
     }
     
     @IBAction func LibraryPressed(_ sender: UIButton ) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    
+        
     }
     
     @IBAction func ImageTapped(_ sender: UITapGestureRecognizer) {
