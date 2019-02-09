@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TomHanks" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-Wx-WjB">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NeganWalkingDead" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-Wx-WjB">
                                 <rect key="frame" x="16" y="20" width="343" height="336"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -82,6 +82,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TomHanks" width="393" height="390"/>
+        <image name="NeganWalkingDead" width="700" height="1000"/>
     </resources>
 </document>
