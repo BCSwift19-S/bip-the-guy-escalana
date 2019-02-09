@@ -68,7 +68,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="ImagetoPunch" destination="mob-xL-6Qm" id="ojO-07-psv"/>
+                        <outlet property="ImageToPunch" destination="cHc-Wx-WjB" id="HJJ-88-k8U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
